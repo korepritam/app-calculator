@@ -220,6 +220,7 @@ public class MainActivity extends AppCompatActivity {
                         while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
                             sbuf.append(tokens[i++]);
                         values.push(Integer.parseInt(sbuf.toString()));
+                        i--;
                     }
 
                     // Current token is an opening brace, push it to 'ops'
