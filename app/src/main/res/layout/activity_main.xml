@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="357dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/calculator"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -228,17 +229,5 @@
         android:layout_toEndOf="@+id/btn8"
         android:text=")"
         android:layout_toRightOf="@+id/btn8" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="224dp"
-        android:layout_height="34dp"
-        android:layout_alignEnd="@+id/btn9"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/btn9"
-        android:layout_marginEnd="-166dp"
-        android:layout_marginRight="-166dp"
-        android:layout_marginTop="13dp"
-        android:text="Pritam Kore" />
 
 </RelativeLayout>

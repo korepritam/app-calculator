@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="357dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/calculator1"
     tools:context=".MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -168,7 +169,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp"
         android:hint="   Expression"
-        android:textColor="?android:attr/colorControlActivated"
+        android:textColor="?android:attr/navigationBarColor"
         android:textSize="24sp" />
 
     <TextView
@@ -179,7 +180,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="148dp"
         android:hint="   Result"
-        android:textColor="?attr/colorPrimaryDark"
+        android:textColor="?android:attr/colorForeground"
         android:textSize="24sp" />
 
     <Button
@@ -228,4 +229,12 @@
         android:layout_toEndOf="@+id/btn8"
         android:text=")"
         android:layout_toRightOf="@+id/btn8" />
+
+    <Button
+        android:id="@+id/btndot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn0"
+        android:layout_toEndOf="@+id/btn7"
+        android:text="." />
 </RelativeLayout>

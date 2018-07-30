@@ -219,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
                         // There may be more than one digits in number
                         while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
                             sbuf.append(tokens[i++]);
+                        i--;
                         values.push(Integer.parseInt(sbuf.toString()));
                     }
 
@@ -254,9 +255,8 @@ public class MainActivity extends AppCompatActivity {
                     values.push(applyOp(ops.pop(), values.pop(), values.pop()));
 
                 // Top of 'values' contains result, return it
-                String s1=String.valueOf(values);
+                String s1=String.valueOf(values.pop());
                 res.setText(s1);
-                
             }
 
         });
@@ -265,7 +265,8 @@ public class MainActivity extends AppCompatActivity {
 
      }
 
-    // Returns true if 'op2' has higher or same precedence as 'op1',
+
+     // Returns true if 'op2' has higher or same precedence as 'op1',
     // otherwise returns false.
     public static boolean hasPrecedence(char op1, char op2)
     {
@@ -297,6 +298,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return 0;
     }
-
 
 }
