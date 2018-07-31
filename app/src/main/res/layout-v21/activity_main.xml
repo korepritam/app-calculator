@@ -231,10 +231,12 @@
         android:layout_toRightOf="@+id/btn8" />
 
     <Button
-        android:id="@+id/btndot"
+        android:id="@+id/btnexit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btn0"
         android:layout_toEndOf="@+id/btn7"
-        android:text="." />
+        android:text="Exit" />
+
+
 </RelativeLayout>

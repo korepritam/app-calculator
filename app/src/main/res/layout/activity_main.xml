@@ -134,12 +134,12 @@
 
     <Button
         android:id="@+id/btnsub"
-        android:layout_width="76dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/btnmul"
+        android:layout_alignRight="@+id/btnmul"
         android:layout_below="@+id/btn3"
-        android:text="-"
-        android:layout_alignRight="@+id/btnmul" />
+        android:text="-" />
 
     <Button
         android:id="@+id/btnbck"
@@ -229,5 +229,13 @@
         android:layout_toEndOf="@+id/btn8"
         android:text=")"
         android:layout_toRightOf="@+id/btn8" />
+
+    <Button
+        android:id="@+id/btndot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn0"
+        android:layout_toEndOf="@+id/btn7"
+        android:text="." />
 
 </RelativeLayout>

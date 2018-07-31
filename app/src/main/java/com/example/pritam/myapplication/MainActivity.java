@@ -1,5 +1,7 @@
 package com.example.pritam.myapplication;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.*;
 import java.util.Stack;
+import java.lang.Double;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,8 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private Button btnclr;
     private Button btnright;
     private Button btnleft;
+    private Button btnexit;
     private TextView exp;
     private TextView res;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +62,35 @@ public class MainActivity extends AppCompatActivity {
         btnclr=(Button)findViewById(R.id.btnclr);
         btnright=(Button)findViewById(R.id.btnright);
         btnleft=(Button)findViewById(R.id.btnleft);
+        btnexit=(Button)findViewById(R.id.btnexit);
         exp=(TextView)findViewById(R.id.exp);
         res=(TextView)findViewById(R.id.res);
+
+        btnexit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder a_builder= new AlertDialog.Builder(MainActivity.this);//name of the activity class(MainActivity)
+                a_builder.setMessage("Do you want to Exit this Calculator!!!")
+                        .setCancelable(true)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        })
+                        .setIcon(R.drawable.icon);
+
+                AlertDialog alert= a_builder.create();
+                alert.setTitle("Exit !!!");
+                alert.show();
+            }
+        });
 
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 char[] tokens = s.toCharArray();
                // String s1=String.valueOf(tokens);
                 // Stack for numbers: 'values'
-                Stack<Integer> values = new Stack<Integer>();
+                Stack<Double> values = new Stack<Double>();
 
                 // Stack for Operators: 'ops'
                 Stack<Character> ops = new Stack<Character>();
@@ -220,7 +252,7 @@ public class MainActivity extends AppCompatActivity {
                         while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9')
                             sbuf.append(tokens[i++]);
                         i--;
-                        values.push(Integer.parseInt(sbuf.toString()));
+                        values.push(Double.parseDouble(sbuf.toString()));
                     }
 
                     // Current token is an opening brace, push it to 'ops'
@@ -280,21 +312,21 @@ public class MainActivity extends AppCompatActivity {
 
     // A utility method to apply an operator 'op' on operands 'a'
     // and 'b'. Return the result.
-    public static int applyOp(char op, int b, int a)
+    public static double applyOp(char op, double b, double a)
     {
         switch (op)
         {
             case '+':
-                return a + b;
+                return (a + b);
             case '-':
-                return a - b;
+                return (a - b);
             case '*':
-                return a * b;
+                return (a * b);
             case '/':
                 if (b == 0)
                     throw new
                             UnsupportedOperationException("Cannot divide by zero");
-                return a / b;
+                return (a / b);
         }
         return 0;
     }
